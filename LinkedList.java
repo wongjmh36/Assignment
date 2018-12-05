@@ -8,10 +8,43 @@ class EmptyListException extends RuntimeException {
 
 public class LinkedList {
 
+    class ListNode {
+
+        private Object data;
+        ListNode next;
+
+        public ListNode(Object o) {
+            data = o;
+            next = null;
+        }
+
+        public ListNode(Object o, ListNode nextNode) {
+            data = o;
+            next = nextNode;
+        }
+
+        public Object getData() {
+            return data;
+        }
+
+        public void setData(Object o) {
+            data = o;
+        }
+
+        public ListNode getNext() {
+            return next;
+        }
+
+        public void setNext(ListNode next) {
+            this.next = next;
+        }
+
+    } // class ListNode
+
     protected ListNode head;
     protected ListNode tail;
-
     protected int length;
+    protected int position = 1;
 
     public LinkedList() {
         head = tail = null;
@@ -20,6 +53,19 @@ public class LinkedList {
 
     public boolean isEmpty() {
         return head == null;
+    }
+
+    public int search(Object item) {
+
+        ListNode current = head;    //Initialize current 
+        while (current != null) {
+            if (current.getData() == item) {
+                return position;
+            }
+            current = current.getNext();
+            position++;
+        }
+        return 0;
     }
 
     public void addToHead(Object item) {
@@ -88,5 +134,5 @@ public class LinkedList {
 
     public int count() {
         return length;
-    }   
-  } 
+    }
+}
