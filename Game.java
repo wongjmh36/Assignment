@@ -13,7 +13,7 @@ class Game {
         for (int k = 1; k <= 10; k++) {
             data = k;
             tree.insert(data);
-        }
+        } 
         tree.inorder();
         System.out.println(" Please guess a number among 1-2000");
 
