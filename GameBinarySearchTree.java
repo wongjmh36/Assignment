@@ -27,8 +27,9 @@ class GameBinarySearchTree {
     private void visit(BinaryNode t) {
         System.out.print(Integer.toString(t.data));
     }
-    private void view(BinaryNode t){
-        System.out.print (t.data);
+
+    private void view(BinaryNode t) {
+        System.out.print(Integer.toString(t.data));
     }
 
     private BinaryNode insertSubtree(BinaryNode t, int d) {
@@ -47,19 +48,21 @@ class GameBinarySearchTree {
     }
 
     BinaryNode findMin(BinaryNode t) {
-        if (t == null) {
-            return null;
-        } else if (t.left == null) {            
-            return t;
-        } else {
-            return findMin(t.left);
+        {
+            if (t == null) {
+                return null;
+            } else if (t.left == null) {
+                return t;
+            } else {
+                return findMin(t.left);
+            }
         }
     }
 
     BinaryNode findMax(BinaryNode t) {
         if (t == null) {
             return null;
-        } else if (t.right == null) {            
+        } else if (t.right == null) {
             return t;
         } else {
             return findMax(t.right);
@@ -68,12 +71,13 @@ class GameBinarySearchTree {
     }
 
     public void findMaxi() {
-        root = findMax(root);
-
+       BinaryNode t= findMax(root);       
+        view(t);
     }
 
     public void findMini() {
-        root = findMin(root);
+      BinaryNode t= findMin(root);       
+        view(t);
     }
 
     public void delete(int x) {
